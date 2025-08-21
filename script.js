@@ -544,7 +544,7 @@ document.getElementById("idChecDoTusk").innerHTML = "Tusk - Xamã das Sombras";
 
 
   }
-  
+   /*............ INICIO DOS PONTOS PARA SE TORNAR DEUS TESTE MODE ROUBAR ..............*/
   else if (senhaR === "deus") {
     mensagemR.innerHTML = "Parabéns, agora você é Deus!!!";
     alert("Parabéns, agora você é Deus!!!");
@@ -566,13 +566,13 @@ inteligenciaDasSombras = 0;
      AumentoDoNivelDaMana = 100;
     mana = 10000000;
     ouro = 50000000;
-    cristal = 10000000000;
+    cristal = 3000000;
     
 
     atributo = 10000;
-    SomaDosCristais =  30000;
-    SomaDaPocaoDeRecuperacao = 360;
-    SomaDaPocaoDeVida = 160;
+    SomaDosCristais =  31000;
+    SomaDaPocaoDeRecuperacao = 500;
+    SomaDaPocaoDeVida = 300;
 
     vida = 100;
     fadiga = 0;
@@ -591,7 +591,7 @@ Magos = 2;
 Kang = 1;
 Ursos = 6;
 KinChul = 1;
-Baruka = 2;
+Baruka = 0;
 Igris = 2;
 Metus = 1;
 Vulcano = 1;
@@ -603,6 +603,7 @@ Rei = 0;
 Enxame = 1;
 Yogumunt = 1;
 Yoo = 18;
+
   }
   
   else {
@@ -985,8 +986,16 @@ document.getElementById("idRetornoExtracaoBeru").innerHTML = ""; /*  Beru - Rei 
         SomaDosCristais +  "/25000";
     }
     if (dia === 12) {
-      document.getElementById("idMissaoDiariaCristais").innerHTML =   "Tenha 23.000 Cristais de Mana minerados: " +
+      document.getElementById("idMissaoDiariaCristais").innerHTML =   "Tenha 30.000 Cristais de Mana minerados: " +
         SomaDosCristais +  "/30000";
+    }
+     if (dia === 13) {
+      document.getElementById("idMissaoDiariaCristais").innerHTML =   "Tenha 30.500 Cristais de Mana minerados: " +
+        SomaDosCristais +  "/30500";
+    }
+      if (dia === 14) {
+      document.getElementById("idMissaoDiariaCristais").innerHTML =   "Tenha 31.000 Cristais de Mana minerados: " +
+        SomaDosCristais +  "/31000";
     }
 
     document.getElementById("idcristal").innerHTML ="Cristais de Mana no Inventário: " + cristal;
@@ -1201,6 +1210,15 @@ document.getElementById("idRetornoExtracaoBeru").innerHTML = ""; /*  Beru - Rei 
         SomaDosCristais +
         "/30000";
     }
+     if (dia === 13) {
+      document.getElementById("idMissaoDiariaCristais").innerHTML =   "Tenha 30.500 Cristais de Mana minerados: " +
+        SomaDosCristais +  "/30500";
+    }
+
+       if (dia === 14) {
+      document.getElementById("idMissaoDiariaCristais").innerHTML =   "Tenha 31.000 Cristais de Mana minerados: " +
+        SomaDosCristais +  "/31000";
+    }
 
     document.getElementById("idcristal").innerHTML =      "Cristais de Mana no Inventário: " + cristal;
 
@@ -1371,6 +1389,18 @@ setTimeout(function(seta) {
         "Faça a compra de 160 Poções de Vida na loja: " +
         SomaDaPocaoDeVida +
         "/160";
+    }
+    if (dia === 13) {
+      document.getElementById("idRetornoMissaoDiariaPocaoDeVida").innerHTML =
+        "Faça a compra de 200 Poções de Vida na loja: " +
+        SomaDaPocaoDeVida +
+        "/200";
+    }
+     if (dia === 14) {
+      document.getElementById("idRetornoMissaoDiariaPocaoDeVida").innerHTML =
+        "Faça a compra de 300 Poções de Vida na loja: " +
+        SomaDaPocaoDeVida +
+        "/300";
     }
 
   } else {
@@ -2493,7 +2523,7 @@ function misaoDiariaReceberRecompensa() {
 
   if (dia === 12) {
     if (
-      SomaDaPocaoDeVida > 159 &&
+        SomaDaPocaoDeVida > 159 &&
       SomaDosCristais > 29999 &&
       RecompensaDiaria === 11 &&
       treino === 100 &&
@@ -2501,33 +2531,162 @@ function misaoDiariaReceberRecompensa() {
     ) {
       RecompensaDiaria = 12;
 
-      document.getElementById("idRetornoMissaoDiaria").innerHTML = "✨ Você zerou a Missão Diária!! ✨";
+      document.getElementById("idRetornoMissaoDiaria").innerHTML = "";
 
       fadiga = 0;
-      document.getElementById("idfadiga").innerHTML =
-        "🪫Fadiga: " + fadiga + "%";
-
+      document.getElementById("idfadiga").innerHTML = "🪫Fadiga: " + fadiga + "%";
       progresso.setAttribute("style", "width: " + fadiga + "%");
 
-      atributo = atributo + 3;
-      document.getElementById("idatributo").innerHTML =
-        "Disponíveis: " + atributo;
 
-        document.getElementById("idAlertaNoMenuAtributos").innerHTML =
-        "⚠️ Atributos";
+      atributo = atributo + 3;
+      document.getElementById("idatributo").innerHTML ="Disponíveis: " + atributo;
+        document.getElementById("idAlertaNoMenuAtributos").innerHTML = "⚠️ Atributos";
 
       dia = 13;
-      document.getElementById("idDiaMissaoDiaria").innerHTML =
-        "Todos os dias foram realizados";
+      document.getElementById("idDiaMissaoDiaria").innerHTML = "Objetivo do dia: " + dia;
 
-      document.getElementById("idMissaoDiariaCristais").innerHTML =
-        "";
-
+      document.getElementById("idMissaoDiariaCristais").innerHTML = "Tenha 30.500 Cristais de Mana minerados: " + SomaDosCristais + "/30500";
 
         ouro = ouro + 500;
         document.getElementById("idouro").innerHTML = "Ouro: " + ouro;
 
-      alert("Receba as recompensas do dia 12 [3 Pontos de atributos - Recuperação total da Fadiga - Caixa misteriosa com 500 Moedas]",
+      alert(
+        "Receba as recompensas do dia 12 [3 Pontos de atributos - Recuperação total da Fadiga - Caixa misteriosa com 500 Moedas]",
+      );
+
+      document.getElementById("idRetornoMissaoDiariaPocaoDeRecuperacao", ).innerHTML = "Faça a compra de 400 Poções de Fadiga na loja: " + SomaDaPocaoDeRecuperacao +  "/400";
+
+      document.getElementById("idRetornoMissaoDiariaPocaoDeVida").innerHTML = "Faça a compra de 200 Poções de Vida na loja: " + SomaDaPocaoDeVida +  "/200";
+
+      document.getElementById("idMissaoDiariaMatarBoss").innerHTML = "Derrote o Baruka Elfo do gelo [Boss na Dangeon Portal Vermelho]";
+
+      treino = 0;
+      TurnoDeLutaCentopeia = 0;
+      RecompensaDaMisaoDiaria = 0;
+      document.getElementById("idtreino").innerHTML = "Um novo dia começou";
+    } else {
+      document.getElementById("idRetornoMissaoDiaria").innerHTML = "Missão do dia 12 incompleta";
+    }
+  }
+
+    if (dia === 13) {
+    if (
+         SomaDaPocaoDeVida > 199 &&
+      SomaDosCristais > 30499 &&
+      RecompensaDiaria === 12 &&
+      treino === 100 &&
+      Baruka === 2 &&
+      SomaDaPocaoDeRecuperacao > 399
+    ) {
+      RecompensaDiaria = 13;
+
+      document.getElementById("idRetornoMissaoDiaria").innerHTML = "";
+
+      fadiga = 0;
+      document.getElementById("idfadiga").innerHTML = "🪫Fadiga: " + fadiga + "%";
+      progresso.setAttribute("style", "width: " + fadiga + "%");
+
+
+      atributo = atributo + 3;
+      document.getElementById("idatributo").innerHTML ="Disponíveis: " + atributo;
+        document.getElementById("idAlertaNoMenuAtributos").innerHTML = "⚠️ Atributos";
+
+      dia = 14;
+      document.getElementById("idDiaMissaoDiaria").innerHTML = "Objetivo do dia: " + dia;
+
+      document.getElementById("idMissaoDiariaCristais").innerHTML = "Tenha 31.000 Cristais de Mana minerados: " + SomaDosCristais + "/31000";
+
+        ouro = ouro + 100;
+        document.getElementById("idouro").innerHTML = "Ouro: " + ouro;
+
+      alert(
+        "Receba as recompensas do dia 13 [3 Pontos de atributos - Recuperação total da Fadiga - Caixa misteriosa com 100 Moedas]",
+      );
+
+      document.getElementById("idRetornoMissaoDiariaPocaoDeRecuperacao", ).innerHTML = "Faça a compra de 500 Poções de Fadiga na loja: " + SomaDaPocaoDeRecuperacao +  "/500";
+
+      document.getElementById("idRetornoMissaoDiariaPocaoDeVida").innerHTML = "Faça a compra de 300 Poções de Vida na loja: " + SomaDaPocaoDeVida +  "/300";
+
+      document.getElementById("idMissaoDiariaMatarBoss").innerHTML = "Derrote o Rei Formiga [Boss na Dangeon Ilha de Jeju]";
+
+      treino = 0;
+      TurnoDeLutaCentopeia = 0;
+      RecompensaDaMisaoDiaria = 0;
+      document.getElementById("idtreino").innerHTML = "Um novo dia começou";
+    } else {
+      document.getElementById("idRetornoMissaoDiaria").innerHTML = "Missão do dia 13 incompleta";
+    }
+  }
+
+  if (dia === 14) {
+    if (
+       SomaDaPocaoDeVida > 299 &&
+      SomaDosCristais > 30999 &&
+      RecompensaDiaria === 13 &&
+      treino === 100 &&
+      Rei === 1 &&
+      SomaDaPocaoDeRecuperacao > 499
+    ) {
+      RecompensaDiaria = 14;
+
+      document.getElementById("idRetornoMissaoDiaria").innerHTML = "";
+
+      fadiga = 0;
+      document.getElementById("idfadiga").innerHTML = "🪫Fadiga: " + fadiga + "%";
+      progresso.setAttribute("style", "width: " + fadiga + "%");
+
+
+      atributo = atributo + 3;
+      document.getElementById("idatributo").innerHTML ="Disponíveis: " + atributo;
+        document.getElementById("idAlertaNoMenuAtributos").innerHTML = "⚠️ Atributos";
+
+      dia = 15;
+      document.getElementById("idDiaMissaoDiaria").innerHTML = "Objetivo do dia: " + dia;
+
+      document.getElementById("idMissaoDiariaCristais").innerHTML = "";
+
+        ouro = ouro + 100;
+        document.getElementById("idouro").innerHTML = "Ouro: " + ouro;
+
+      alert(
+        "Receba as recompensas do dia 14 [3 Pontos de atributos - Recuperação total da Fadiga - Caixa misteriosa com 100 Moedas]",
+      );
+
+      document.getElementById("idRetornoMissaoDiariaPocaoDeRecuperacao", ).innerHTML = "";
+
+      document.getElementById("idRetornoMissaoDiariaPocaoDeVida").innerHTML = "";
+
+      document.getElementById("idMissaoDiariaMatarBoss").innerHTML = "Derrote o Antares - Rei dos Dragões - Monarca da Destruição [Boss Final - Arco dos Monarcas: A luta entre Governantes e Monarcas]";
+
+      treino = 0;
+      TurnoDeLutaCentopeia = 0;
+      RecompensaDaMisaoDiaria = 0;
+      document.getElementById("idtreino").innerHTML = "Um novo dia começou";
+    } else {
+      document.getElementById("idRetornoMissaoDiaria").innerHTML = "Missão do dia 14 incompleta";
+    }
+  }
+
+  if (dia === 15) {
+    if (
+       treino === 100 &&
+      Antares === 1 
+    ) {
+      RecompensaDiaria = 15;
+
+
+      document.getElementById("idRetornoMissaoDiaria").innerHTML = "✨ Você zerou a Missão Diária!! ✨";
+
+
+      dia = 16;
+      document.getElementById("idDiaMissaoDiaria").innerHTML =   "Todos os dias foram realizados";
+document.getElementById("idMissaoDiariaMatarBoss").innerHTML = "";
+      
+
+
+        
+
+      alert("✨ Você zerou a Missão Diária!! ✨",
       );
 
       document.getElementById(
@@ -2544,7 +2703,7 @@ function misaoDiariaReceberRecompensa() {
       document.getElementById("idtreino").innerHTML = "Você zerou a Missão Diária!!";
     } else {
       document.getElementById("idRetornoMissaoDiaria").innerHTML =
-        "Missão do dia 12 incompleta";
+        "Missão do dia 15 incompleta";
     }
   }
 
@@ -4896,6 +5055,16 @@ atualizarGrafico(dados);
         document.getElementById("idRetornoMissaoDiariaPocaoDeRecuperacao", ).innerHTML =
           "Faça a compra de 360 Poções de Fadiga na loja: " +  SomaDaPocaoDeRecuperacao + "/360";
       }
+       if (dia === 13) {
+        document.getElementById("idRetornoMissaoDiariaPocaoDeRecuperacao", ).innerHTML =
+          "Faça a compra de 400 Poções de Fadiga na loja: " +  SomaDaPocaoDeRecuperacao + "/400";
+      }
+
+      if (dia === 14) {
+        document.getElementById("idRetornoMissaoDiariaPocaoDeRecuperacao", ).innerHTML =
+          "Faça a compra de 500 Poções de Fadiga na loja: " +  SomaDaPocaoDeRecuperacao + "/500";
+      }
+
     } else {
       document.getElementById("idRetornoCompraPocaoRecuperacao").innerHTML =
         "Compra não realizada, você não tem ouro suficiente ou sua fadiga está zerada";
